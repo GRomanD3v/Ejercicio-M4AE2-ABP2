@@ -1,6 +1,6 @@
 
 function cambioDeDolar(montoDolares) {
-  if (isNaN(montoDolares) || typeof montoDolares !== 'number') {
+  if (isNaN(montoDolares) || typeof montoDolares !== 'number' || montoDolares === null) {
     return " Por favor ingresa un número válido";
   } else {
     return (parseFloat(montoDolares) * 745).toFixed(2);
