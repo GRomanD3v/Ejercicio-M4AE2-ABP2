@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Ejercicio M4AE2 ABP2</title>
 </head>
+
 <body>
     <div class="container">
         <h2>Convertidor de Dólares a Pesos Chilenos</h2>
         <label for="montoDolares">Monto en Dólares (USD):</label>
-        <input type="number" id="montoDolares" min="1" placeholder="Ej: 100.50">
-
-        <button onclick="convertirMoneda()">Convertir a CLP</button>
-
+        <input type="text" id="montoDolares" placeholder="Ingrese monto en USD">
+        <button onclick="convertirMoneda()">Convertir</button>
         <p id="resultado"></p>
     </div>
+
     <div class="container">
         <h2>Evaluador de Subsidio de Arriendo</h2>
 
@@ -39,9 +40,11 @@
 
         <button onclick="evaluarSubsidio()">Evaluar Subsidio</button>
 
-        <p id="resultadoSubsidio"></p> </div>
+        <p id="resultadoSubsidio"></p>
+    </div>
 
 
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

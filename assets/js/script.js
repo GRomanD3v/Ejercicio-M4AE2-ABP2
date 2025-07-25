@@ -3,7 +3,11 @@ function cambioDeDolar(montoDolares) {
   if (isNaN(montoDolares) || typeof montoDolares !== 'number' || montoDolares === null) {
     return " Por favor ingresa un número válido";
   } else {
-    return (parseFloat(montoDolares) * 745).toFixed(2);
+    let resultadoNumerico = (parseFloat(montoDolares) * 745);
+    return resultadoNumerico.toLocaleString('es-CL',{
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
   }
 }
 // mostrar en consola el cálculo de conversión con mi función
@@ -23,10 +27,9 @@ function convertirMoneda() {
 
   //mostrando el resultado
   if (typeof resultadoConversion === 'string') {
-    resultadoElemento.textContent = resultadoConversion;
-    resultadoElemento.classList.add('error');
+    resultadoElemento.innerHTML = `CLP $${resultadoConversion}`;
   } else {
-    resultadoElemento.textContent = `CLP ${resultadoConversion}`;
+    resultadoElemento.innerHTML = `CLP $${resultadoConversion}`;
   }
 
 }

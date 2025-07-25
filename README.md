@@ -11,54 +11,19 @@ Javascript
 ## Ejercicios de M4AE2 ABP2: Construcción de Funciones.
 Este documento detalla el proceso paso a paso de cómo se construyeron dos funciones JavaScript para resolver problemas específicos, enfatizando el razonamiento detrás de cada decisión de codificación.
 
-1. # Función cambioDeDolar: Conversor de Moneda
-El objetivo era crear una función que convirtiera un monto en dólares a pesos chilenos, con un tipo de cambio fijo de 745 CLP por 1 USD, y que validara que la entrada fuera siempre un número.
+1. #  Función cambioDeDolar: Conversor de Moneda USD a CLP
+El objetivo de este proyecto es desarrollar una función JavaScript que convierta un monto de Dólares Estadounidenses (USD) a Pesos Chilenos (CLP). La función incorpora un tipo de cambio fijo y robustas validaciones de entrada, además de formatear el resultado para una visualización clara y adecuada para valores monetarios.
 
-### Paso a Paso de la Construcción:
+Características Clave
+Tipo de Cambio Fijo: 1 USD = 745 CLP.
 
-- Definición de la Estructura Básica:
+Validación de Entrada: Asegura que solo se procesen valores numéricos válidos.
 
-Se inició definiendo la estructura fundamental de una función en JavaScript, incluyendo la palabra clave function, un nombre descriptivo (cambioDeDolar), y los paréntesis para los parámetros.
+Formato de Moneda Chilena: El resultado se muestra con separadores de miles (punto) y decimales (coma), y siempre con dos decimales, siguiendo el estándar CLP (ej. $149.000,00).
 
-Se identificó que la función necesitaba recibir el monto en dólares como un parámetro. Se optó por el nombre montoDolares para mayor claridad.
 
-function cambioDeDolar(montoDolares) {
-    // Lógica de la función
-}
 
-- Implementación de la Lógica de Conversión:
 
-Con el tipo de cambio de 745, la operación necesaria era una simple multiplicación: montoDolares * 745.
-
-Para que la función "entregara" este resultado, se utilizó la palabra clave return.
-
-Se añadió .toFixed(2) al resultado para asegurar que el monto en pesos chilenos se muestre con dos decimales, adecuado para valores monetarios (centavos).
-
-function cambioDeDolar(montoDolares) {
-    return (montoDolares * 745).toFixed(2);
-}
-
-- Implementación de la Validación de Entrada:
-
-El requerimiento clave era aceptar "solo números". Para esto, se utilizó la función isNaN() (Is Not a Number) que verifica si un valor no es un número.
-
-Se empleó una estructura if/else para controlar el flujo:
-
-Si isNaN(montoDolares) era true (es decir, la entrada no era un número), la función debería devolver un mensaje de error claro como una cadena de texto.
-
-De lo contrario (else), si la entrada era un número, se procedería con la conversión ya definida.
-
-Se añadió una verificación adicional typeof montoDolares !== 'number' para una validación más estricta, asegurando que el valor no solo pudiera ser interpretado como un número (como "100"), sino que fuera explícitamente del tipo number.
-
-function cambioDeDolar(montoDolares) {
-  if (isNaN(montoDolares) || typeof montoDolares !== 'number' || montoDolares === null) {
-    return "Por favor ingresa un número válido"; // Mensaje de error si la entrada no es un número
-  } else {
-    return (parseFloat(montoDolares) * 745).toFixed(2); // Conversión si la entrada es válida
-  }
-}
-
-(Nota: parseFloat se utiliza internamente para asegurar que la operación se realice sobre un número, aunque el typeof ya valida el tipo primitivo).
 
 2. # Función requisitosBeneficios: Evaluador de Subsidio de Arriendo
 El desafío era crear una función que evaluara múltiples condiciones para determinar la elegibilidad para un subsidio, donde todas las condiciones deben ser satisfechas.
